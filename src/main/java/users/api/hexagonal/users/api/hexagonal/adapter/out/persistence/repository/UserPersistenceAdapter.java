@@ -9,7 +9,7 @@ import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.dto.RandomUser
 import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.mapper.RandomUserMapper;
 import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.model.Result;
 import users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.repository.entity.UserEntity;
-import users.api.hexagonal.users.api.hexagonal.application.exception.ThirdPartyException;
+import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.exception.ThirdPartyException;
 import users.api.hexagonal.users.api.hexagonal.application.model.user.User;
 import users.api.hexagonal.users.api.hexagonal.application.port.out.CreateRandomUserPort;
 import users.api.hexagonal.users.api.hexagonal.application.port.out.GetRandomUserPort;
