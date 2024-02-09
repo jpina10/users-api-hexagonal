@@ -7,7 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import users.api.hexagonal.users.api.hexagonal.application.exception.ResourceNotFoundException;
 import users.api.hexagonal.users.api.hexagonal.application.model.user.User;
-import users.api.hexagonal.users.api.hexagonal.application.port.out.UserRepositoryPort;
+import users.api.hexagonal.users.api.hexagonal.application.port.out.LoadUserPort;
 import users.api.hexagonal.users.api.hexagonal.factory.user.UserTestFactory;
 
 import java.util.Optional;
@@ -25,7 +25,7 @@ class GetUserServiceTest {
     private final UserTestFactory userTestFactory = new UserTestFactory();
 
     @Mock
-    private UserRepositoryPort userRepositoryPort;
+    private LoadUserPort loadUserPort;
 
     @InjectMocks
     private GetUserService getUserService;
@@ -35,18 +35,18 @@ class GetUserServiceTest {
         User user = userTestFactory.getUser();
 
         Optional<User> userEntityOptional = Optional.of(user);
-        when(userRepositoryPort.findByUsername(user.getUsername())).thenReturn(userEntityOptional);
+        when(loadUserPort.findByUsername(user.getUsername())).thenReturn(userEntityOptional);
 
         getUserService.getUserByUsername(USERNAME);
 
-        verify(userRepositoryPort).findByUsername(USERNAME);
+        verify(loadUserPort).findByUsername(USERNAME);
     }
 
     @Test
     void getUserByUsernameWithNonExistingUsername_ShouldThrowException() {
-        when(userRepositoryPort.findByUsername(any(String.class))).thenReturn(Optional.empty());
+        when(loadUserPort.findByUsername(any(String.class))).thenReturn(Optional.empty());
         assertThrows(ResourceNotFoundException.class, () -> getUserService.getUserByUsername(USERNAME));
 
-        verify(userRepositoryPort).findByUsername(USERNAME);
+        verify(loadUserPort).findByUsername(USERNAME);
     }
 }

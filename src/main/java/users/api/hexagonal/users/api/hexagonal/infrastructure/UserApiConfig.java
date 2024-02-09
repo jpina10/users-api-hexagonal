@@ -5,7 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import users.api.hexagonal.users.api.hexagonal.application.port.in.CreateRandomUserUseCase;
 import users.api.hexagonal.users.api.hexagonal.application.port.in.GetUserUseCase;
-import users.api.hexagonal.users.api.hexagonal.application.port.out.UserRepositoryPort;
+import users.api.hexagonal.users.api.hexagonal.application.port.out.CreateRandomUserPort;
+import users.api.hexagonal.users.api.hexagonal.application.port.out.GetRandomUserPort;
+import users.api.hexagonal.users.api.hexagonal.application.port.out.LoadUserPort;
 import users.api.hexagonal.users.api.hexagonal.application.service.CreateRandomUserService;
 import users.api.hexagonal.users.api.hexagonal.application.service.GetUserService;
 
@@ -13,11 +15,17 @@ import users.api.hexagonal.users.api.hexagonal.application.service.GetUserServic
 @RequiredArgsConstructor
 public class UserApiConfig {
 
-    private final UserRepositoryPort userRepositoryPort;
+    private final GetRandomUserPort getRandomUserPort;
+    private final CreateRandomUserPort createRandomUserPort;
+    private final LoadUserPort loadUserPort;
 
     @Bean
     public GetUserUseCase getUserUseCase() {
-        return new GetUserService(userRepositoryPort);
+        return new GetUserService(loadUserPort);
     }
 
+    @Bean
+    public CreateRandomUserUseCase createRandomUserUseCase() {
+        return new CreateRandomUserService(getRandomUserPort, createRandomUserPort, loadUserPort);
+    }
 }

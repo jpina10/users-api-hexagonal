@@ -6,6 +6,7 @@ import users.api.hexagonal.users.api.hexagonal.application.model.user.User;
 
 @Mapper(uses = AddressMapper.class)
 public interface UserMapper {
+    User toModel(UserEntity entity);
 
-    User toModel(UserEntity userEntity);
+    UserEntity toEntity(User user);
 }
