@@ -4,7 +4,7 @@ package users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.model.Result;
-import users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.repository.entity.UserEntity;
+import users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.entity.UserEntity;
 import users.api.hexagonal.users.api.hexagonal.common.mapper.AddressMapper;
 
 import java.time.LocalDateTime;

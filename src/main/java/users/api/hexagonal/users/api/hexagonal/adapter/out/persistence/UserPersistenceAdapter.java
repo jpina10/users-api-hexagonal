@@ -1,4 +1,4 @@
-package users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.repository;
+package users.api.hexagonal.users.api.hexagonal.adapter.out.persistence;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -8,8 +8,9 @@ import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.RandomUserApiC
 import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.dto.RandomUserApiResponse;
 import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.mapper.RandomUserMapper;
 import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.model.Result;
-import users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.repository.entity.UserEntity;
+import users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.entity.UserEntity;
 import users.api.hexagonal.users.api.hexagonal.adapter.in.nameapi.exception.ThirdPartyException;
+import users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.repository.UserJpaRepository;
 import users.api.hexagonal.users.api.hexagonal.application.model.user.User;
 import users.api.hexagonal.users.api.hexagonal.application.port.out.CreateRandomUserPort;
 import users.api.hexagonal.users.api.hexagonal.application.port.out.GetRandomUserPort;

@@ -1,4 +1,4 @@
-package users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.repository.entity;
+package users.api.hexagonal.users.api.hexagonal.adapter.out.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
